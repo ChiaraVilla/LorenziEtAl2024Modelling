@@ -70,18 +70,6 @@ lambda = 1; % rate of phenotypic change
 %%% Monte Carlo parameter
 N = 1e6;    % Number of particles
 
-%%%%%%%%%%%%%%%%%%%
-%%% Things in input_parameters that I did not find in this code so did not
-%%% include for now 
-%%%
-%%% %Stripes
-%%% Sdag=@(s) cL*(s<par.str1 || s >par.str2)+cF*(s>par.str1 && s <par.str2);
-%%%
-%%% D=0.01;
-%%% Lm=1;
-%%% lm=1; (IC)
-%%% brho0=1;
-
 %% Set up and initial conditions
 
 %%% Average velocity imposed by the stripes
@@ -157,6 +145,9 @@ for nt=1:Nt
             y(il)=ybar(x1(il),x2(il));
 
         case 'VM' % Von Mises
+        %%%%% DOWNLOAD the function 'vmrand.m' by Dylan Muir (2024). vmrand(fMu, fKappa, varargin) 
+        %%%%% (https://www.mathworks.com/matlabcentral/fileexchange/37241-vmrand-fmu-fkappa-varargin), 
+        %%%%% MATLAB Central File Exchange. Retrieved October 22, 2024.
             yb=ybar(x1(il),x2(il));
             alpha=vmrand((2*pi*yb)-pi,10,length(iv),1);
             y(il)=(alpha+pi)./(2*pi);
