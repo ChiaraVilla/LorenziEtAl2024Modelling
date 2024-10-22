@@ -44,9 +44,11 @@ along with this program.  If not, see https://www.gnu.org/licenses/.
 The code is set up to simulate the microscopic model (1)-(2) described in Section 2 of LorenziEtAl2024Modelling, under the numerical setup detailed in Section 4.1 of LorenziEtAl2024Modelling. <br />
 
 **To simulate the microscopic model:** <br />
-- 'MICRO_SimMC_1D.m' : file to run Monte Carlo simulations of the microscopic model in 1D  <br />
-- 'MICRO_SimMC_1D_tot.m' : file to run Monte Carlo simulations of the microscopic model in 1D, including interactions in which both phenotypic switching and directional changes occur (results shown in Section 4.2.1). This is an effect of order Dt^2, and in our model set up it yields the same results as in 'MICRO_SimMC_1D.m' (this was thoroughly checked), because phenotypic changes only depend on phenotype and not on velocity, thus simulating the phenotypic switch before the change in velocity accounts for both particles only switching phenotype and those switching both phenotype and velocity. <br />
-- 'MICRO_SimMC_2D.m' : file to run Monte Carlo simulations of the microscopic model in 2D (results shown in Section 4.2.1)  <br />
+- 'MICRO_SimMC_1D.m' : file to run Monte Carlo simulations of the microscopic model in 1D, with Kappa = Dirac delta.  <br />
+- 'MICRO_SimMC_1D_tot.m' : file to run Monte Carlo simulations of the microscopic model in 1D, with Kappa = Dirac delta, including interactions in which both phenotypic switching and directional changes occur (results shown in Section 4.2.1). This is an effect of order Dt^2, and in our model set up it yields the same results as in 'MICRO_SimMC_1D.m' (this was thoroughly checked), because phenotypic changes only depend on phenotype and not on velocity, thus simulating the phenotypic switch before the change in velocity accounts for both particles only switching phenotype and those switching both phenotype and velocity. <br />
+- 'MICRO_SimMC_2D.m' : file to run Monte Carlo simulations of the microscopic model in 2D (results shown in Section 4.2.1), with Kappa = Dirac delta or Kappa = Von Mises. To run simulations for Kappa given as a Von Mises distributions, first download the function 'vmrand'* by Dylan Muir (2024) and add it to the folder. <br />
+
+* Dylan Muir (2024). vmrand(fMu, fKappa, varargin) (https://www.mathworks.com/matlabcentral/fileexchange/37241-vmrand-fmu-fkappa-varargin), MATLAB Central File Exchange. Retrieved October 22, 2024.
 
 
 ### Simulating the macroscopic model
