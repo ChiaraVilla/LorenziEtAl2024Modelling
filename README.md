@@ -63,24 +63,9 @@ The code is set up to simulate the PDE (52) in LorenziEtAl2024Modelling, under t
 
 ### Reproducing plots from LorenziEtAl2024Modelling
 
-The data produced by simulations that is used to obtain the plots in LorenziEtAl2024Modelling is provided in the repository in the folder 'Saved data'. We first detail how to reproduce these figures from scratch and then clarify which simulations the different data files are storing results of. <br />
+The data produced by simulations that is used to obtain the plots in LorenziEtAl2024Modelling was stored in a folder 'Saved data'. Due to data file sizes, these are not uploaded in the repository. We detail how to reproduce the figures from scratch and note that the files below to create plots call data files stored in a folder 'Saved data', which may need to be adapted if produced data is stored elsewhere (or with different file names). <br />
 
 **To reproduce the figures in Section 4.2 of LorenziEtAl2024Modelling:** <br />
 - 'Plot_comparison_1D_eps.m' : file to reproduce figure 2. One must first run  'MICRO_SimMC_1D_tot.m' (or  'MICRO_SimMC_1D.m') and 'MACRO_SimPDE_1D.m' for the different values of 'epsilon' that should be plot and save the data.
 - 'Plot_comparison_2D.m' : file to reproduce figure 3. One must first run  'MICRO_SimMC_2D.m' and 'MACRO_SimPDE_2D.m' for the chosen value of 'epsilon' that should be plot and save the data.
 - 'Plot_stripes.m' : function to reproduce figures 4 and 5. This function is called from within 'MACRO_Sim_2D.m' to plot results, so just run that file with the chosen set up. <br />
-
-**Stored_Data files (.mat):** <br />
-- 'datasMC_1D_tot_eps0.0001' : results of  'MICRO_SimMC_1D_tot.m' for epsilon=10^-4 and Kappa='DD' (Figure 2, top row, red) <br />
-- 'datasMC_1D_tot_eps0.001' : results of  'MICRO_SimMC_1D_tot.m' for epsilon=10^-3 and Kappa='DD' (Figure 2, middle row, red) <br />
-- 'datasMC_1D_tot_eps0.01' : results of  'MICRO_SimMC_1D_tot.m' for epsilon=10^-2 and Kappa='DD' (Figure 2, bottom row, red) <br />
-- 'datasMC_2D_eps1e-3_N1e6' : results of  'MICRO_SimMC_2D.m' for epsilon=10^-2 and Kappa='DD' (Figure 3, red) <br />
-- 'Saved_11092024_Results_1D_eps0.0001' : results of 'MACRO_SimPDE_1D.m' for epsilon=10^-4 and Kappa='DD' (Figure 2, top row, blue) <br />
-- 'Saved_11092024_Results_1D_eps0.001' : results of 'MACRO_SimPDE_1D.m' for epsilon=10^-3 and Kappa='DD' (Figure 2, middle row, blue) <br />
-- 'Saved_11092024_Results_1D_eps0.01' : results of 'MACRO_SimPDE_1D.m' for epsilon=10^-2 and Kappa='DD' (Figure 2, bottom row, blue) <br />
-- 'Saved_11092024_Setup_1D_eps0.0001' : saved simulation set up yielding  'Saved_11092024_Results_1D_eps0.0001' <br />
-- 'Saved_11092024_Setup_1D_eps0.001' : saved simulation set up yielding  'Saved_11092024_Results_1D_eps0.001' <br />
-- 'Saved_110924_Results_DD_eps0.001' : results of 'MACRO_SimPDE_2D.m' for epsilon=10^-3 and Kappa='DD' (Figure 4 + Figure 3, blue) <br />
-- 'Saved_110924_Results_VM_eps0.001' : results of 'MACRO_SimPDE_2D.m' for epsilon=10^-3 and Kappa='VM' (Figure 5) <br />
-- 'Saved_110924_Setup_DD_eps0.001' : saved simulation set up yielding  'Saved_110924_Results_DD_eps0.001' <br />
-- 'Saved_110924_Setup_VM_eps0.001' : saved simulation set up yielding  'Saved_110924_Results_VM_eps0.001' <br />
