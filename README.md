@@ -36,7 +36,7 @@ along with this program.  If not, see https://www.gnu.org/licenses/.
 ## Repository content and how to use
 
 **To change the model set up:** <br />
-- 'Parameters.m' : the main parameter values of the simulations can be modified here, including the value of the first order correction coefficient 'epsilon'. This does not include numerical scheme-specific parameters, which can be modified in the respective files for simulating the macroscopic (SimPDE) and microscopic (SimMC) models. This function is called from the files:  MICRO_SimMC_1D.m, MICRO_SimMC_1D_tot.m, MICRO_SimMC_2D.m, MACRO_SimPDE_1D.m, MACRO_SimPDE_2D.m. 
+- 'Parameters.m' : the main parameter values of the simulations can be modified here, including the value of the first order correction coefficient 'epsilon'. This does not include numerical scheme-specific parameters, which can be modified in the respective files for simulating the macroscopic (SimPDE) and microscopic (SimMC) models. This function is called from the files:  MICRO_SimMC_1D.m, MICRO_SimMC_2D.m, MACRO_SimPDE_1D.m, MACRO_SimPDE_2D.m. 
 
 
 ### Simulating the microscopic model
