@@ -4,7 +4,7 @@
 %%%          cell populations: from single-cell dynamics                %%%     
 %%%                to population-level behaviours"                      %%%
 %%%                                                                     %%%
-%%%        T. Lorenzi, N. Loy (*), L. Preziosi, C. Villa, 2024          %%%
+%%%            T. Lorenzi, N. Loy (*), C. Villa, 2024                   %%%
 %%%                                                                     %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                                                                     %%%
@@ -45,17 +45,6 @@ Nx2 = length(xg2);
 xg1 = [xg1,b+0.5*Dx1];
 xg2 = [xg2,d+0.5*Dx2];
 
-%%% Velocity domain
-Vmax = 1.7;
-dv = 1e-2;
-vmod = [0:dv:Vmax];
-
-%%% Phenotype domain
-ymax = 1;
-ymin = 0;
-dy = 0.05;
-yy = ymin:dy:ymax;
-Ny = length(yy);
 
 %%% Time discretization
 Dt = 1e-4;
@@ -69,6 +58,8 @@ lambda = 1; % rate of phenotypic change
 
 %%% Monte Carlo parameter
 N = 1e6;    % Number of particles
+
+
 
 %% Set up and initial conditions
 
@@ -145,9 +136,9 @@ for nt=1:Nt
             y(il)=ybar(x1(il),x2(il));
 
         case 'VM' % Von Mises
-        %%%%% DOWNLOAD the function 'vmrand.m' by Dylan Muir (2024). vmrand(fMu, fKappa, varargin) 
-        %%%%% (https://www.mathworks.com/matlabcentral/fileexchange/37241-vmrand-fmu-fkappa-varargin), 
-        %%%%% MATLAB Central File Exchange. Retrieved October 22, 2024.
+            %%%%% DOWNLOAD the function 'vmrand.m' by Dylan Muir (2024). vmrand(fMu, fKappa, varargin) 
+            %%%%% (https://www.mathworks.com/matlabcentral/fileexchange/37241-vmrand-fmu-fkappa-varargin), 
+            %%%%% MATLAB Central File Exchange. Retrieved October 22, 2024.
             yb=ybar(x1(il),x2(il));
             alpha=vmrand((2*pi*yb)-pi,10,length(iv),1);
             y(il)=(alpha+pi)./(2*pi);

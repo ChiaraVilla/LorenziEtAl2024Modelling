@@ -4,7 +4,7 @@
 %%%          cell populations: from single-cell dynamics                %%%     
 %%%                to population-level behaviours"                      %%%
 %%%                                                                     %%%
-%%%        T. Lorenzi, N. Loy (*), L. Preziosi, C. Villa, 2024          %%%
+%%%            T. Lorenzi, N. Loy (*), C. Villa, 2024                   %%%
 %%%                                                                     %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                                                                     %%%

@@ -1,11 +1,11 @@
 # LorenziEtAl2024Modelling
-Matlab code used to simulate the microscopic and macroscopic models in "Modelling collective migration of phenotypically heterogeneous cell populations: from single-cell dynamics to population-level behaviours" (2024), by Tommaso Lorenzi, Nadia Loy, Luigi Preziosi, Chiara Villa
+Matlab code used to simulate the microscopic and macroscopic models in "Modelling collective migration of phenotypically heterogeneous cell populations: from single-cell dynamics to population-level behaviours" (2024), by Tommaso Lorenzi, Nadia Loy, Chiara Villa
 
 ## Generalities
 
 **Public gitlab repository LorenziEtAl2024Modelling** <br />
 This repository provides Matlab files to simulate the microscopic and macroscopic models in <br />
-Tommaso Lorenzi, Nadia Loy, Luigi Preziosi, Chiara Villa (2024) <br />
+Tommaso Lorenzi, Nadia Loy, Chiara Villa (2024) <br />
 Modelling collective migration of phenotypically heterogeneous cell populations: from single-cell dynamics to population-level behaviours <br />
 Soon available on ArXiv [...] and HAL [...] <br />
 For details we refer the interested reader to this publication. 
@@ -44,8 +44,7 @@ along with this program.  If not, see https://www.gnu.org/licenses/.
 The code is set up to simulate the microscopic model (1)-(2) described in Section 2 of LorenziEtAl2024Modelling, under the numerical setup detailed in Section 4.1 of LorenziEtAl2024Modelling. <br />
 
 **To simulate the microscopic model:** <br />
-- 'MICRO_SimMC_1D.m' : file to run Monte Carlo simulations of the microscopic model in 1D, with Kappa = Dirac delta.  <br />
-- 'MICRO_SimMC_1D_tot.m' : file to run Monte Carlo simulations of the microscopic model in 1D, with Kappa = Dirac delta, including interactions in which both phenotypic switching and directional changes occur (results shown in Section 4.2.1). This is an effect of order Dt^2, and in our model set up it yields the same results as in 'MICRO_SimMC_1D.m' (this was thoroughly checked), because phenotypic changes only depend on phenotype and not on velocity, thus simulating the phenotypic switch before the change in velocity accounts for both particles only switching phenotype and those switching both phenotype and velocity. <br />
+- 'MICRO_SimMC_1D.m' : file to run Monte Carlo simulations of the microscopic model in 1D, with Kappa = Dirac delta, including interactions in which both phenotypic switching and directional changes occur (results shown in Section 4.2.1), and effect of order Dt^2. In our model set up it yields the same results as in the absence of such interactions (this was thoroughly checked), because phenotypic changes only depend on phenotype and not on velocity, thus simulating the phenotypic switch before the change in velocity accounts for both particles only switching phenotype and those switching both phenotype and velocity. <br />
 - 'MICRO_SimMC_2D.m' : file to run Monte Carlo simulations of the microscopic model in 2D (results shown in Section 4.2.1), with Kappa = Dirac delta or Kappa = Von Mises. To run simulations for Kappa given as a Von Mises distributions, first download the function 'vmrand'* by Dylan Muir (2024) and add it to the folder. <br />
 
 * Dylan Muir (2024). vmrand(fMu, fKappa, varargin) (https://www.mathworks.com/matlabcentral/fileexchange/37241-vmrand-fmu-fkappa-varargin), MATLAB Central File Exchange. Retrieved October 22, 2024.
@@ -68,6 +67,6 @@ The code is set up to simulate the PDE (52) in LorenziEtAl2024Modelling, under t
 The data produced by simulations that is used to obtain the plots in LorenziEtAl2024Modelling was stored in a folder 'Saved data'. Due to data file sizes, these are not uploaded in the repository. We detail how to reproduce the figures from scratch and note that the files below to create plots call data files stored in a folder 'Saved data', which may need to be adapted if produced data is stored elsewhere (or with different file names). <br />
 
 **To reproduce the figures in Section 4.2 of LorenziEtAl2024Modelling:** <br />
-- 'Plot_comparison_1D_eps.m' : file to reproduce figure 2. One must first run  'MICRO_SimMC_1D_tot.m' (or  'MICRO_SimMC_1D.m') and 'MACRO_SimPDE_1D.m' for the different values of 'epsilon' that should be plot and save the data.
+- 'Plot_comparison_1D_eps.m' : file to reproduce figure 2. One must first run  'MICRO_SimMC_1D.m' and 'MACRO_SimPDE_1D.m' for the different values of 'epsilon' that should be plot and save the data.
 - 'Plot_comparison_2D.m' : file to reproduce figure 3. One must first run  'MICRO_SimMC_2D.m' and 'MACRO_SimPDE_2D.m' for the chosen value of 'epsilon' that should be plot and save the data.
 - 'Plot_stripes.m' : function to reproduce figures 4 and 5. This function is called from within 'MACRO_Sim_2D.m' to plot results, so just run that file with the chosen set up. <br />

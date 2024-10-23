@@ -4,13 +4,12 @@
 %%%          cell populations: from single-cell dynamics                %%%     
 %%%                to population-level behaviours"                      %%%
 %%%                                                                     %%%
-%%%        T. Lorenzi, N. Loy (*), L. Preziosi, C. Villa, 2024          %%%
+%%%            T. Lorenzi, N. Loy (*), C. Villa, 2024                   %%%
 %%%                                                                     %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                                                                     %%%
 %%%  Code for the numerical integration of the microscopic (1)-(2)      %%%
 %%%  with a Monte Carlo scheme in 1D.  [copyright: Nadia Loy (*)]       %%%
-%%%  This is for Kappa = Dirac Delta.                                   %%%
 %%%                                                                     %%%
 %%% (*) nadia.loy@polito.it                                             %%%
 %%%                                                                     %%%
@@ -33,6 +32,10 @@ d = par.x2max;
 % par.ymaxL = par.ymaxLA; % A) 1
 par.ymaxL = par.ymaxLB; % B) 0
 
+%%% Choose Kappa definition:
+Kappa = 'DD'; % Dirac delta
+% Kappa = 'VM'; % Von Mises
+
 %%% Physical domain
 Dx1 = .01;
 Dx2 = .01;
@@ -42,18 +45,6 @@ Nx1 = length(xg1);
 Nx2 = length(xg2);
 xg1 = [xg1,b+0.5*Dx1];
 xg2 = [xg2,d+0.5*Dx2];
-
-%%% Velocity domain
-Vmax = 1.7;
-dv = 1e-2;
-vmod = [0:dv:Vmax];
-
-%%% Phenotype domain
-ymax = 1;
-ymin = 0;
-dy = 0.05;
-yy = ymin:dy:ymax;
-Ny = length(yy);
 
 %%% Time discretization
 Dt = 1e-4;
@@ -121,6 +112,12 @@ for nt=1:Nt
     %%% Interacting agents of the current itaration
     Tv=binornd(1,(mu/par.eps)*Dt,N,1);
     Tl=binornd(1,(lambda/par.eps)*Dt,N,1);
+    Ttot=Tv+Tl;
+    itot=find(Ttot==2);
+    iv=find(Tv);
+    il=find(Tl);
+    Tv((ismember(iv,itot)))=0;
+    Tl((ismember(il,itot)))=0;
     iv=find(Tv);
     il=find(Tl);
 
@@ -147,6 +144,30 @@ for nt=1:Nt
 
     %%% Phenotypic switch
     y(il)=par.ymaxL;
+
+    %%% Agents doing both things
+    % Phenotypic switch
+    y(itot)=par.ymaxL;
+    % Direction dynamics: Rejection method
+    nr=length(itot);
+    ivnr=itot;
+    ic=0;
+    pr_dir=zeros(N,1);
+    i=1;
+    while nr>1
+        i=i+1;
+        r1=binornd(1,0.5,nr,1);
+        r1(r1==0)=-1;
+        r2=(Mat(min(d*ones(nr,1),max((c)*ones(nr,1),x2(ivnr)+par.Rmax)))./(2*(0.1+x2(ivnr)-c))).*rand(nr,1);
+        iin=find(r2<Mat(min(d*ones(nr,1),max((c)*ones(nr,1),x2(ivnr)+(par.Rmin+(par.Rmax-par.Rmin).*y(ivnr)).*r1)))./(2*(0.1+x2(ivnr)-c)));
+        pr_dir(ivnr(iin))=r1(iin);
+        
+        ivnr(iin)=[];
+        nr=length(ivnr);
+    end
+
+    dir2=pr_dir;
+    vx2(itot)=dir2(itot)*par.vmaxL;
    
     %%%Transport 
     x2=x2+Dt*vx2;
@@ -177,5 +198,5 @@ end
 
 %% Save setup and results
 folder = 'Saved_Data/'; 
-save([folder,'datasMC_1D_eps',num2str(par.eps),'.mat'])
+save([folder,'datasMC_1D_tot_eps',num2str(par.eps),'.mat'])
 
