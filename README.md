@@ -35,24 +35,16 @@ along with this program.  If not, see https://www.gnu.org/licenses/.
 
 ## Repository content and how to use
 
+The code is set up to simulate the microscopic model (1)-(2) described in Section 2 of LorenziEtAl2024Modelling, and to simulate the PDE (52) in LorenziEtAl2024Modelling, under the numerical setup detailed in Section 4.1 of LorenziEtAl2024Modelling. <br />
+
 **To change the model set up:** <br />
 - 'Parameters.m' : the main parameter values of the simulations can be modified here, including the value of the first order correction coefficient 'epsilon'. This does not include numerical scheme-specific parameters, which can be modified in the respective files for simulating the macroscopic (SimPDE) and microscopic (SimMC) models. This function is called from the files:  MICRO_SimMC_1D.m, MICRO_SimMC_2D.m, MACRO_SimPDE_1D.m, MACRO_SimPDE_2D.m. 
-
-
-### Simulating the microscopic model
-
-The code is set up to simulate the microscopic model (1)-(2) described in Section 2 of LorenziEtAl2024Modelling, under the numerical setup detailed in Section 4.1 of LorenziEtAl2024Modelling. <br />
 
 **To simulate the microscopic model:** <br />
 - 'MICRO_SimMC_1D.m' : file to run Monte Carlo simulations of the microscopic model in 1D, with Kappa = Dirac delta, including interactions in which both phenotypic switching and directional changes occur (results shown in Section 4.2.1), and effect of order Dt^2. In our model set up it yields the same results as in the absence of such interactions (this was thoroughly checked), because phenotypic changes only depend on phenotype and not on velocity, thus simulating the phenotypic switch before the change in velocity accounts for both particles only switching phenotype and those switching both phenotype and velocity. <br />
 - 'MICRO_SimMC_2D.m' : file to run Monte Carlo simulations of the microscopic model in 2D (results shown in Section 4.2.1), with Kappa = Dirac delta or Kappa = Von Mises. To run simulations for Kappa given as a Von Mises distributions, first download the function 'vmrand'* by Dylan Muir (2024) and add it to the folder. <br />
 
 * Dylan Muir (2024). vmrand(fMu, fKappa, varargin) (https://www.mathworks.com/matlabcentral/fileexchange/37241-vmrand-fmu-fkappa-varargin), MATLAB Central File Exchange. Retrieved October 22, 2024.
-
-
-### Simulating the macroscopic model
-
-The code is set up to simulate the PDE (52) in LorenziEtAl2024Modelling, under the numerical setup detailed in Section 4.1 of LorenziEtAl2024Modelling. 
 
 **To simulate the macroscopic model:** <br />
 - 'MACRO_SimPDE_1D.m' : file to run for simulations of the macroscopic model in 1D (results shown in Section 4.2.1) <br />
