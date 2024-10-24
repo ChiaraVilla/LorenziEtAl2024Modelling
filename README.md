@@ -49,6 +49,8 @@ The code is set up to simulate the microscopic model (1)-(2) described in Sectio
 **To simulate the macroscopic model:** <br />
 - 'MACRO_SimPDE_1D.m' : file to run for simulations of the macroscopic model in 1D (results shown in Section 4.2.1) <br />
 - 'MACRO_SimPDE_2D.m' : file to run for simulations of the macroscopic model in 2D (results shown in Section 4.2.2) <br />
+- 'MACRO_SimPDE_2D_SIM.m' : file to run for simulations of the simplified macroscopic model given by equation (66) in 2D  (results shown in Section 4.2.3) <br />
+
 - 'Nonlocal_advection_1D.m' : function called from within the 'MACRO_Sim_1D.m' file to calculate the advection velocity U_T and the variance-covariance matrix D_T appearing in PDE (52) in 1D <br />
 - 'Nonlocal_advection_2D.m' : function called from within the 'MACRO_Sim_2D.m' file to calculate the advection velocity U_T and the variance-covariance matrix D_T appearing in PDE (52) in 2D <br />
 - 'MUSCL_GP.m' : function called from within 'MACRO_Sim_1D.m' and 'MACRO_Sim_2D.m' to compute the numerical approximation of the flux of PDE (52) using the MUSCL scheme. Go to this function to change the flux-limiter to use for the simulation. <br />
