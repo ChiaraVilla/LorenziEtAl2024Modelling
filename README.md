@@ -38,7 +38,7 @@ along with this program.  If not, see https://www.gnu.org/licenses/.
 The code is set up to simulate the microscopic model (1)-(2) described in Section 2 of LorenziEtAl2024Modelling, and to simulate the PDE (52) in LorenziEtAl2024Modelling, under the numerical setup detailed in Section 4.1 of LorenziEtAl2024Modelling. <br />
 
 **To change the model set up:** <br />
-- 'Parameters.m' : the main parameter values of the simulations can be modified here, including the value of the first order correction coefficient 'epsilon'. This does not include numerical scheme-specific parameters, which can be modified in the respective files for simulating the macroscopic (SimPDE) and microscopic (SimMC) models. This function is called from the files:  MICRO_SimMC_1D.m, MICRO_SimMC_2D.m, MACRO_SimPDE_1D.m, MACRO_SimPDE_2D.m. 
+- 'Parameters.m' : the main parameter values of the simulations can be modified here, including the value of the first order correction coefficient 'epsilon'. This does not include numerical scheme-specific parameters, which can be modified in the respective files for simulating the macroscopic (SimPDE) and microscopic (SimMC) models. This function is called from the files:  MICRO_SimMC_1D.m, MICRO_SimMC_2D.m, MACRO_SimPDE_1D.m, MACRO_SimPDE_2D.m and 'MACRO_Sim_2D_SIM.m'.
 
 **To simulate the microscopic model:** <br />
 - 'MICRO_SimMC_1D.m' : file to run Monte Carlo simulations of the microscopic model in 1D, with Kappa = Dirac delta, including interactions in which both phenotypic switching and directional changes occur (results shown in Section 4.2.1), and effect of order Dt^2. In our model set up it yields the same results as in the absence of such interactions (this was thoroughly checked), because phenotypic changes only depend on phenotype and not on velocity, thus simulating the phenotypic switch before the change in velocity accounts for both particles only switching phenotype and those switching both phenotype and velocity. <br />
@@ -49,11 +49,10 @@ The code is set up to simulate the microscopic model (1)-(2) described in Sectio
 **To simulate the macroscopic model:** <br />
 - 'MACRO_SimPDE_1D.m' : file to run for simulations of the macroscopic model in 1D (results shown in Section 4.2.1) <br />
 - 'MACRO_SimPDE_2D.m' : file to run for simulations of the macroscopic model in 2D (results shown in Section 4.2.2) <br />
-- 'MACRO_SimPDE_2D_SIM.m' : file to run for simulations of the simplified macroscopic model given by equation (66) in 2D  (results shown in Section 4.2.3) <br />
-
+- 'MACRO_SimPDE_2D_SIM.m' : file to run for simulations of the simplified (SIM) macroscopic model given by equation (66) in 2D  (results shown in Section 4.2.3) <br />
 - 'Nonlocal_advection_1D.m' : function called from within the 'MACRO_Sim_1D.m' file to calculate the advection velocity U_T and the variance-covariance matrix D_T appearing in PDE (52) in 1D <br />
-- 'Nonlocal_advection_2D.m' : function called from within the 'MACRO_Sim_2D.m' file to calculate the advection velocity U_T and the variance-covariance matrix D_T appearing in PDE (52) in 2D <br />
-- 'MUSCL_GP.m' : function called from within 'MACRO_Sim_1D.m' and 'MACRO_Sim_2D.m' to compute the numerical approximation of the flux of PDE (52) using the MUSCL scheme. Go to this function to change the flux-limiter to use for the simulation. <br />
+- 'Nonlocal_advection_2D.m' : function called from within the 'MACRO_Sim_2D.m' and 'MACRO_Sim_2D_SIM.m' files to calculate the advection velocity U_T and the variance-covariance matrix D_T appearing in PDE (52) in 2D <br />
+- 'MUSCL_GP.m' : function called from within 'MACRO_Sim_1D.m', 'MACRO_Sim_2D.m' and 'MACRO_Sim_2D_SIM.m' files to compute the numerical approximation of the flux of PDE (52) using the MUSCL scheme. Go to this function to change the flux-limiter to use for the simulation. <br />
 
 
 ### Reproducing plots from LorenziEtAl2024Modelling
@@ -63,4 +62,4 @@ The data produced by simulations that is used to obtain the plots in LorenziEtAl
 **To reproduce the figures in Section 4.2 of LorenziEtAl2024Modelling:** <br />
 - 'Plot_comparison_1D_eps.m' : file to reproduce figure 2. One must first run  'MICRO_SimMC_1D.m' and 'MACRO_SimPDE_1D.m' for the different values of 'epsilon' that should be plot and save the data.
 - 'Plot_comparison_2D.m' : file to reproduce figure 3. One must first run  'MICRO_SimMC_2D.m' and 'MACRO_SimPDE_2D.m' for the chosen value of 'epsilon' that should be plot and save the data.
-- 'Plot_stripes.m' : function to reproduce figures 4 and 5. This function is called from within 'MACRO_Sim_2D.m' to plot results, so just run that file with the chosen set up. <br />
+- 'Plot_stripes.m' : function to reproduce figures 4, 5, 6 and 7. This function is called from within 'MACRO_Sim_2D.m' and 'MACRO_Sim_2D_SIM.m' to plot results, so just run that file with the chosen set up. <br />
