@@ -1,15 +1,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                                                                     %%%
-%%%   "Modelling collective migration of phenotypically heterogeneous   %%%
-%%%          cell populations: from single-cell dynamics                %%%     
-%%%                to population-level behaviours"                      %%%
+%%%   "Phenotype-structuring of non-local kinetic models of cell        %%%     
+%%%           migration driven by environmental sensing"                %%%
 %%%                                                                     %%%
-%%%            T. Lorenzi, N. Loy (*), C. Villa, 2024                   %%%
+%%%              T. Lorenzi, N. Loy, C. Villa, 2024                     %%%
 %%%                                                                     %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                                                                     %%%
 %%%     Approximation of velocity term in nonlocal 1D sensing region    %%%
-%%%             [copyright: Chiara Villa (*), Nadia Loy]                %%%
+%%%             [copyright: Chiara Villa (*), Nadia Loy (**)]           %%%
 %%%                                                                     %%%
 %%% (*) chiara.villa.1[at]sorbonne-universite.fr                        %%%
 %%%                                                                     %%%
