@@ -1,15 +1,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                                                                     %%%
-%%%   "Modelling collective migration of phenotypically heterogeneous   %%%
-%%%          cell populations: from single-cell dynamics                %%%     
-%%%                to population-level behaviours"                      %%%
+%%%   "Phenotype-structuring of non-local kinetic models of cell        %%%     
+%%%           migration driven by environmental sensing"                %%%
 %%%                                                                     %%%
-%%%            T. Lorenzi, N. Loy (*), C. Villa, 2024                   %%%
+%%%              T. Lorenzi, N. Loy, C. Villa, 2024                     %%%
 %%%                                                                     %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                                                                     %%%
 %%%  Code to simulate Stripe migration essays of Goodman et al. (1989)  %%%
-%%%  over laminin & fibronectin, with the macroscopic model of Eq.(46)  %%%
+%%%  over laminin & fibronectin, with the macroscopic model of Eq.(44)  %%%
 %%%                  [copyright: Chiara Villa (*)]                      %%%
 %%%                                                                     %%%
 %%% (*) chiara.villa.1[at]sorbonne-universite.fr                        %%%
