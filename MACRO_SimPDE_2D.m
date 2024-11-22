@@ -9,7 +9,7 @@
 %%%                                                                     %%%
 %%%  Code to simulate Stripe migration essays of Goodman et al. (1989)  %%%
 %%%  over laminin & fibronectin, with the macroscopic model of Eq.(44)  %%%
-%%%                  [copyright: Chiara Villa (*)]                      %%%
+%%%                 in 2D [copyright: Chiara Villa (*)]                 %%%
 %%%                                                                     %%%
 %%% (*) chiara.villa.1[at]sorbonne-universite.fr                        %%%
 %%%                                                                     %%%
@@ -73,7 +73,7 @@ MassB = MassA;
 
 save([folder,'Saved_',date,'_Setup_',Kappa,add,'.mat'],'par','Kappa','UTx2A',"UTx1A","UTx1B","UTx2B",'DT11A','DT12A','DT22A','DT11B','DT12B','DT22B')
 
-%% Setup solver for equation (44) - Advection velocity UT(1-eps\div UT)
+%% Setup solver for equation (73)-(74) - Advection velocity UT(1-eps\div UT)
 %%%
 %%% \dt p + \div ( p * UT(1-eps\div UT) ) = \div \div (eps * DT * p )
 
