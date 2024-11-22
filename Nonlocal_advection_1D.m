@@ -11,6 +11,7 @@
 %%%             [copyright: Chiara Villa (*), Nadia Loy (**)]           %%%
 %%%                                                                     %%%
 %%% (*) chiara.villa.1[at]sorbonne-universite.fr                        %%%
+%%% (**) nadia.loy@polito.it                                            %%%
 %%%                                                                     %%%
 %%%   Disclaimer: this is not optimised (i.e. overall code will be slow %%%
 %%%   if this needs to be re-calculated at every iteration in time),    %%%
