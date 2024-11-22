@@ -1,15 +1,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                                                                     %%%
-%%%   "Modelling collective migration of phenotypically heterogeneous   %%%
-%%%          cell populations: from single-cell dynamics                %%%     
-%%%                to population-level behaviours"                      %%%
+%%%   "Phenotype-structuring of non-local kinetic models of cell        %%%     
+%%%           migration driven by environmental sensing"                %%%
 %%%                                                                     %%%
-%%%            T. Lorenzi, N. Loy (*), C. Villa, 2024                   %%%
+%%%              T. Lorenzi, N. Loy, C. Villa, 2024                     %%%
 %%%                                                                     %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                                                                     %%%
 %%%  Code to simulate Stripe migration essays of Goodman et al. (1989)  %%%
-%%%  over laminin & fibronectin, with the macroscopic model of Eq.(52)  %%%
+%%%  over laminin & fibronectin, with the macroscopic model of Eq.(44)  %%%
 %%%                  [copyright: Chiara Villa (*)]                      %%%
 %%%                                                                     %%%
 %%% (*) chiara.villa.1[at]sorbonne-universite.fr                        %%%
@@ -74,7 +73,7 @@ MassB = MassA;
 
 save([folder,'Saved_',date,'_Setup_',Kappa,add,'.mat'],'par','Kappa','UTx2A',"UTx1A","UTx1B","UTx2B",'DT11A','DT12A','DT22A','DT11B','DT12B','DT22B')
 
-%% Setup solver for equation (48) - Advection velocity UT(1-eps\div UT)
+%% Setup solver for equation (44) - Advection velocity UT(1-eps\div UT)
 %%%
 %%% \dt p + \div ( p * UT(1-eps\div UT) ) = \div \div (eps * DT * p )
 
