@@ -1,10 +1,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                                                                     %%%
-%%%   "Modelling collective migration of phenotypically heterogeneous   %%%
-%%%          cell populations: from single-cell dynamics                %%%     
-%%%                to population-level behaviours"                      %%%
+%%%   "Phenotype-structuring of non-local kinetic models of cell        %%%     
+%%%           migration driven by environmental sensing"                %%%
 %%%                                                                     %%%
-%%%            T. Lorenzi, N. Loy (*), C. Villa, 2024                   %%%
+%%%              T. Lorenzi, N. Loy, C. Villa, 2024                     %%%
 %%%                                                                     %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                                                                     %%%
