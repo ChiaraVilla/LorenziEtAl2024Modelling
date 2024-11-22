@@ -1,12 +1,12 @@
 # LorenziEtAl2024Modelling
-Matlab code used to simulate the microscopic and macroscopic models in "Modelling collective migration of phenotypically heterogeneous cell populations: from single-cell dynamics to population-level behaviours" (2024), by Tommaso Lorenzi, Nadia Loy, Chiara Villa
+Matlab code used to simulate the microscopic and macroscopic models in "Phenotype-structuring of non-local kinetic models of cell migration driven by environmental sensing" (2024), by Tommaso Lorenzi, Nadia Loy, Chiara Villa
 
 ## Generalities
 
 **Public gitlab repository LorenziEtAl2024Modelling** <br />
 This repository provides Matlab files to simulate the microscopic and macroscopic models in <br />
 Tommaso Lorenzi, Nadia Loy, Chiara Villa (2024) <br />
-Modelling collective migration of phenotypically heterogeneous cell populations: from single-cell dynamics to population-level behaviours <br />
+Phenotype-structuring of non-local kinetic models of cell migration driven by environmental sensing <br />
 Soon available on ArXiv [...] and HAL [...] <br />
 For details we refer the interested reader to this publication. 
 
