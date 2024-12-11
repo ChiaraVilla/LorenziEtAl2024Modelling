@@ -101,11 +101,11 @@ rhoB = rho0;
 rhostoreB = [rhoB];
 
 %%% CFL condition
-UmaxA = max(max(max(UTx1A)),max(max(UTx2A)));
-UmaxB = max(max(max(UTx1B)),max(max(UTx2B)));
+UmaxA = max(max(UTx2A));
+UmaxB = max(max(UTx2B));
 Umax = max(UmaxA,UmaxB);
-DmaxA = max(max(max(DTx1A)),max(max(DTx2A)));
-DmaxB = max(max(max(DTx1B)),max(max(DTx2B)));
+DmaxA = max(max(DTx2A));
+DmaxB = max(max(DTx2B));
 Dmax = par.eps*max(DmaxA,DmaxB);
 CFL_adv = dx/Umax;
 CFL_diff = (dx^2)/(2*Dmax);
@@ -143,24 +143,12 @@ for i=dt:dt:Tend
     if ismember(round(i,6),tstore)%mod(1.0,i)==0
         rhostoreA = [rhostoreA,rhoA];
         rhostoreB = [rhostoreB,rhoB];
-        subplot(2,3,1)
-        plot(UTtest)
-        title('UT original')
-        subplot(2,3,2)
-        plot(UTx2A)
-        title('UTe with eps correction')
-        subplot(2,3,3)
-        plot(dfdx2A )
-        title('advection d(UTe*rho)/dx')
-        subplot(2,3,4)
-        plot(DTA_c)
-        title('DT')
-        subplot(2,3,5)
-        plot(d2fdx2A )
-        title('diffusion d2(DT*rho)/dx2')
-        subplot(2,3,6)
+        subplot(2,1,1)
         plot(rhoA )
-        title('rho')
+        title('rho (LN)')
+        subplot(2,1,2)
+        plot(rhoB )
+        title('rho (FN)')
         drawnow
      end
 
