@@ -7,7 +7,7 @@ Matlab code used to simulate the microscopic and macroscopic models in "Phenotyp
 This repository provides Matlab files to simulate the microscopic and macroscopic models in <br />
 Tommaso Lorenzi, Nadia Loy, Chiara Villa (2024) <br />
 Phenotype-structuring of non-local kinetic models of cell migration driven by environmental sensing <br />
-Soon available on ArXiv [...] and HAL [...] <br />
+Soon available on ArXiv [...] and HAL [hal-04851469] <br />
 For details we refer the interested reader to this publication. 
 
 **Authors** <br />
